@@ -1,0 +1,66 @@
+{
+    "type": "object",
+    "properties": {
+        "studyId": {
+            "required": true,
+            "type": "string"
+        },
+        "sampleId": {
+            "required": true,
+            "type": "string"
+        },
+        "chromosome": {
+            "required": false,
+            "type": "string"
+        },
+        "projection": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "ID",
+                "SUMMARY",
+                "DETAILED",
+                "META"
+            ],
+            "default": "SUMMARY"
+        },
+        "pageSize": {
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1,
+            "maximum": 20000,
+            "exclusiveMinimum": false,
+            "exclusiveMaximum": false,
+            "default": 20000
+        },
+        "pageNumber": {
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0,
+            "exclusiveMinimum": false,
+            "default": 0
+        },
+        "sortBy": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "chromosome",
+                "start",
+                "end",
+                "numberOfProbes",
+                "segmentMean"
+            ]
+        },
+        "direction": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "ASC",
+                "DESC"
+            ],
+            "default": "ASC"
+        }
+    }
+}

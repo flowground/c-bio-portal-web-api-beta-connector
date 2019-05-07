@@ -1,0 +1,60 @@
+{
+    "type": "object",
+    "properties": {
+        "studyId": {
+            "required": true,
+            "type": "string"
+        },
+        "patientId": {
+            "required": true,
+            "type": "string"
+        },
+        "projection": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "ID",
+                "SUMMARY",
+                "DETAILED",
+                "META"
+            ],
+            "default": "SUMMARY"
+        },
+        "pageSize": {
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1,
+            "maximum": 10000000,
+            "exclusiveMinimum": false,
+            "exclusiveMaximum": false,
+            "default": 10000000
+        },
+        "pageNumber": {
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0,
+            "exclusiveMinimum": false,
+            "default": 0
+        },
+        "sortBy": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "eventType",
+                "startNumberOfDaysSinceDiagnosis",
+                "endNumberOfDaysSinceDiagnosis"
+            ]
+        },
+        "direction": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "ASC",
+                "DESC"
+            ],
+            "default": "ASC"
+        }
+    }
+}

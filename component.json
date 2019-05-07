@@ -1,0 +1,931 @@
+{
+    "title": "cBioPortal web API [Beta]",
+    "description": "A web service for supplying JSON formatted data to cBioPortal clients. Please note that this API is currently in beta and subject to change.",
+    "docsUrl": "",
+    "url": "http://www.cbioportal.org/api/api-docs",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "http://www.cbioportal.org/api",
+                    "https://www.cbioportal.org/api",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "getAllCancerTypesUsingGET": {
+            "main": "./lib/actions/getAllCancerTypesUsingGET.js",
+            "title": "Get all cancer types",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getAllCancerTypesUsingGET.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getCancerTypeUsingGET": {
+            "main": "./lib/actions/getCancerTypeUsingGET.js",
+            "title": "Get a cancer type",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getCancerTypeUsingGET.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getAllClinicalAttributesUsingGET": {
+            "main": "./lib/actions/getAllClinicalAttributesUsingGET.js",
+            "title": "Get all clinical attributes",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getAllClinicalAttributesUsingGET.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getClinicalAttributeCountsUsingPOST": {
+            "main": "./lib/actions/getClinicalAttributeCountsUsingPOST.js",
+            "title": "Get counts for clinical attributes according to their data availability for selected samples/patients",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getClinicalAttributeCountsUsingPOST.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "fetchClinicalAttributesUsingPOST": {
+            "main": "./lib/actions/fetchClinicalAttributesUsingPOST.js",
+            "title": "Fetch clinical attributes",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/fetchClinicalAttributesUsingPOST.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "fetchClinicalDataUsingPOST": {
+            "main": "./lib/actions/fetchClinicalDataUsingPOST.js",
+            "title": "Fetch clinical data by patient IDs or sample IDs (all studies)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/fetchClinicalDataUsingPOST.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "fetchCopyNumberSegmentsUsingPOST": {
+            "main": "./lib/actions/fetchCopyNumberSegmentsUsingPOST.js",
+            "title": "Fetch copy number segments by sample ID",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/fetchCopyNumberSegmentsUsingPOST.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "fetchGenePanelDataInMultipleMolecularProfilesUsingPOST": {
+            "main": "./lib/actions/fetchGenePanelDataInMultipleMolecularProfilesUsingPOST.js",
+            "title": "Fetch gene panel data",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/fetchGenePanelDataInMultipleMolecularProfilesUsingPOST.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getAllGenePanelsUsingGET": {
+            "main": "./lib/actions/getAllGenePanelsUsingGET.js",
+            "title": "Get all gene panels",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getAllGenePanelsUsingGET.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "fetchGenePanelsUsingPOST": {
+            "main": "./lib/actions/fetchGenePanelsUsingPOST.js",
+            "title": "Get gene panel",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/fetchGenePanelsUsingPOST.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getGenePanelUsingGET": {
+            "main": "./lib/actions/getGenePanelUsingGET.js",
+            "title": "Get gene panel",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getGenePanelUsingGET.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getAllGenesUsingGET": {
+            "main": "./lib/actions/getAllGenesUsingGET.js",
+            "title": "Get all genes",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getAllGenesUsingGET.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "fetchGenesUsingPOST": {
+            "main": "./lib/actions/fetchGenesUsingPOST.js",
+            "title": "Fetch genes by ID",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/fetchGenesUsingPOST.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getGeneUsingGET": {
+            "main": "./lib/actions/getGeneUsingGET.js",
+            "title": "Get a gene",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getGeneUsingGET.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getAliasesOfGeneUsingGET": {
+            "main": "./lib/actions/getAliasesOfGeneUsingGET.js",
+            "title": "Get aliases of a gene",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getAliasesOfGeneUsingGET.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "fetchMolecularDataInMultipleMolecularProfilesUsingPOST": {
+            "main": "./lib/actions/fetchMolecularDataInMultipleMolecularProfilesUsingPOST.js",
+            "title": "Fetch molecular data",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/fetchMolecularDataInMultipleMolecularProfilesUsingPOST.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getAllMolecularProfilesUsingGET": {
+            "main": "./lib/actions/getAllMolecularProfilesUsingGET.js",
+            "title": "Get all molecular profiles",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getAllMolecularProfilesUsingGET.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "fetchMolecularProfilesUsingPOST": {
+            "main": "./lib/actions/fetchMolecularProfilesUsingPOST.js",
+            "title": "Fetch molecular profiles",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/fetchMolecularProfilesUsingPOST.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getMolecularProfileUsingGET": {
+            "main": "./lib/actions/getMolecularProfileUsingGET.js",
+            "title": "Get molecular profile",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getMolecularProfileUsingGET.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getDiscreteCopyNumbersInMolecularProfileUsingGET": {
+            "main": "./lib/actions/getDiscreteCopyNumbersInMolecularProfileUsingGET.js",
+            "title": "Get discrete copy number alterations in a molecular profile",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getDiscreteCopyNumbersInMolecularProfileUsingGET.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "fetchCopyNumberCountsUsingPOST": {
+            "main": "./lib/actions/fetchCopyNumberCountsUsingPOST.js",
+            "title": "Get counts of specific genes and alterations within a CNA molecular profile",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/fetchCopyNumberCountsUsingPOST.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "fetchDiscreteCopyNumbersInMolecularProfileUsingPOST": {
+            "main": "./lib/actions/fetchDiscreteCopyNumbersInMolecularProfileUsingPOST.js",
+            "title": "Fetch discrete copy number alterations in a molecular profile by sample ID",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/fetchDiscreteCopyNumbersInMolecularProfileUsingPOST.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getGenePanelDataUsingPOST": {
+            "main": "./lib/actions/getGenePanelDataUsingPOST.js",
+            "title": "Get gene panel data",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getGenePanelDataUsingPOST.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getAllMolecularDataInMolecularProfileUsingGET": {
+            "main": "./lib/actions/getAllMolecularDataInMolecularProfileUsingGET.js",
+            "title": "Get all molecular data in a molecular profile",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getAllMolecularDataInMolecularProfileUsingGET.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "fetchAllMolecularDataInMolecularProfileUsingPOST": {
+            "main": "./lib/actions/fetchAllMolecularDataInMolecularProfileUsingPOST.js",
+            "title": "Fetch molecular data in a molecular profile",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/fetchAllMolecularDataInMolecularProfileUsingPOST.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getMutationsInMolecularProfileBySampleListIdUsingGET": {
+            "main": "./lib/actions/getMutationsInMolecularProfileBySampleListIdUsingGET.js",
+            "title": "Get mutations in a molecular profile by Sample List ID",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getMutationsInMolecularProfileBySampleListIdUsingGET.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "fetchMutationsInMolecularProfileUsingPOST": {
+            "main": "./lib/actions/fetchMutationsInMolecularProfileUsingPOST.js",
+            "title": "Fetch mutations in a molecular profile",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/fetchMutationsInMolecularProfileUsingPOST.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "fetchMutationCountsByPositionUsingPOST": {
+            "main": "./lib/actions/fetchMutationCountsByPositionUsingPOST.js",
+            "title": "Fetch mutation counts in all studies by gene and position",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/fetchMutationCountsByPositionUsingPOST.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "fetchMutationsInMultipleMolecularProfilesUsingPOST": {
+            "main": "./lib/actions/fetchMutationsInMultipleMolecularProfilesUsingPOST.js",
+            "title": "Fetch mutations in multiple molecular profiles by sample IDs",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/fetchMutationsInMultipleMolecularProfilesUsingPOST.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getAllPatientsUsingGET": {
+            "main": "./lib/actions/getAllPatientsUsingGET.js",
+            "title": "Get all patients",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getAllPatientsUsingGET.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "fetchPatientsUsingPOST": {
+            "main": "./lib/actions/fetchPatientsUsingPOST.js",
+            "title": "Fetch patients by ID",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/fetchPatientsUsingPOST.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getAllSampleListsUsingGET": {
+            "main": "./lib/actions/getAllSampleListsUsingGET.js",
+            "title": "Get all sample lists",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getAllSampleListsUsingGET.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "fetchSampleListsUsingPOST": {
+            "main": "./lib/actions/fetchSampleListsUsingPOST.js",
+            "title": "Fetch sample lists by ID",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/fetchSampleListsUsingPOST.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getSampleListUsingGET": {
+            "main": "./lib/actions/getSampleListUsingGET.js",
+            "title": "Get sample list",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getSampleListUsingGET.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getAllSampleIdsInSampleListUsingGET": {
+            "main": "./lib/actions/getAllSampleIdsInSampleListUsingGET.js",
+            "title": "Get all sample IDs in a sample list",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getAllSampleIdsInSampleListUsingGET.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "fetchSamplesUsingPOST": {
+            "main": "./lib/actions/fetchSamplesUsingPOST.js",
+            "title": "Fetch samples by ID",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/fetchSamplesUsingPOST.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getAllStudiesUsingGET": {
+            "main": "./lib/actions/getAllStudiesUsingGET.js",
+            "title": "Get all studies",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getAllStudiesUsingGET.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "fetchStudiesUsingPOST": {
+            "main": "./lib/actions/fetchStudiesUsingPOST.js",
+            "title": "Fetch studies by IDs",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/fetchStudiesUsingPOST.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getTagsForMultipleStudiesUsingPOST": {
+            "main": "./lib/actions/getTagsForMultipleStudiesUsingPOST.js",
+            "title": "Get the study tags by IDs",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getTagsForMultipleStudiesUsingPOST.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getStudyUsingGET": {
+            "main": "./lib/actions/getStudyUsingGET.js",
+            "title": "Get a study",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getStudyUsingGET.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getAllClinicalAttributesInStudyUsingGET": {
+            "main": "./lib/actions/getAllClinicalAttributesInStudyUsingGET.js",
+            "title": "Get all clinical attributes in the specified study",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getAllClinicalAttributesInStudyUsingGET.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getClinicalAttributeInStudyUsingGET": {
+            "main": "./lib/actions/getClinicalAttributeInStudyUsingGET.js",
+            "title": "Get specified clinical attribute",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getClinicalAttributeInStudyUsingGET.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getAllClinicalDataInStudyUsingGET": {
+            "main": "./lib/actions/getAllClinicalDataInStudyUsingGET.js",
+            "title": "Get all clinical data in a study",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getAllClinicalDataInStudyUsingGET.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "fetchAllClinicalDataInStudyUsingPOST": {
+            "main": "./lib/actions/fetchAllClinicalDataInStudyUsingPOST.js",
+            "title": "Fetch clinical data by patient IDs or sample IDs (specific study)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/fetchAllClinicalDataInStudyUsingPOST.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getAllMolecularProfilesInStudyUsingGET": {
+            "main": "./lib/actions/getAllMolecularProfilesInStudyUsingGET.js",
+            "title": "Get all molecular profiles in a study",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getAllMolecularProfilesInStudyUsingGET.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getAllPatientsInStudyUsingGET": {
+            "main": "./lib/actions/getAllPatientsInStudyUsingGET.js",
+            "title": "Get all patients in a study",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getAllPatientsInStudyUsingGET.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getPatientInStudyUsingGET": {
+            "main": "./lib/actions/getPatientInStudyUsingGET.js",
+            "title": "Get a patient in a study",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getPatientInStudyUsingGET.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getAllClinicalDataOfPatientInStudyUsingGET": {
+            "main": "./lib/actions/getAllClinicalDataOfPatientInStudyUsingGET.js",
+            "title": "Get all clinical data of a patient in a study",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getAllClinicalDataOfPatientInStudyUsingGET.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getAllClinicalEventsOfPatientInStudyUsingGET": {
+            "main": "./lib/actions/getAllClinicalEventsOfPatientInStudyUsingGET.js",
+            "title": "Get all clinical events of a patient in a study",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getAllClinicalEventsOfPatientInStudyUsingGET.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getAllSamplesOfPatientInStudyUsingGET": {
+            "main": "./lib/actions/getAllSamplesOfPatientInStudyUsingGET.js",
+            "title": "Get all samples of a patient in a study",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getAllSamplesOfPatientInStudyUsingGET.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getAllSampleListsInStudyUsingGET": {
+            "main": "./lib/actions/getAllSampleListsInStudyUsingGET.js",
+            "title": "Get all sample lists in a study",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getAllSampleListsInStudyUsingGET.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getAllSamplesInStudyUsingGET": {
+            "main": "./lib/actions/getAllSamplesInStudyUsingGET.js",
+            "title": "Get all samples in a study",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getAllSamplesInStudyUsingGET.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getSampleInStudyUsingGET": {
+            "main": "./lib/actions/getSampleInStudyUsingGET.js",
+            "title": "Get a sample in a study",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getSampleInStudyUsingGET.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getAllClinicalDataOfSampleInStudyUsingGET": {
+            "main": "./lib/actions/getAllClinicalDataOfSampleInStudyUsingGET.js",
+            "title": "Get all clinical data of a sample in a study",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getAllClinicalDataOfSampleInStudyUsingGET.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getCopyNumberSegmentsInSampleInStudyUsingGET": {
+            "main": "./lib/actions/getCopyNumberSegmentsInSampleInStudyUsingGET.js",
+            "title": "Get copy number segments in a sample in a study",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getCopyNumberSegmentsInSampleInStudyUsingGET.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getTagsUsingGET": {
+            "main": "./lib/actions/getTagsUsingGET.js",
+            "title": "Get the tags of a study",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getTagsUsingGET.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

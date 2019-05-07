@@ -1,0 +1,58 @@
+{
+    "type": "object",
+    "properties": {
+        "molecularProfileId": {
+            "required": true,
+            "type": "string"
+        },
+        "discreteCopyNumberEventType": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "HOMDEL_AND_AMP",
+                "HOMDEL",
+                "AMP",
+                "GAIN",
+                "HETLOSS",
+                "DIPLOID",
+                "ALL"
+            ],
+            "default": "HOMDEL_AND_AMP"
+        },
+        "projection": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "ID",
+                "SUMMARY",
+                "DETAILED",
+                "META"
+            ],
+            "default": "SUMMARY"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "entrezGeneIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer",
+                        "format": "int32",
+                        "minimum": 1,
+                        "maximum": 50000
+                    }
+                },
+                "sampleIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "sampleListId": {
+                    "type": "string"
+                }
+            },
+            "title": "DiscreteCopyNumberFilter"
+        }
+    }
+}

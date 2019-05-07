@@ -1,0 +1,106 @@
+{
+    "type": "object",
+    "properties": {
+        "projection": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "ID",
+                "SUMMARY",
+                "DETAILED",
+                "META"
+            ],
+            "default": "SUMMARY"
+        },
+        "pageSize": {
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1,
+            "maximum": 10000000,
+            "exclusiveMinimum": false,
+            "exclusiveMaximum": false,
+            "default": 10000000
+        },
+        "pageNumber": {
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0,
+            "exclusiveMinimum": false,
+            "default": 0
+        },
+        "sortBy": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "entrezGeneId",
+                "center",
+                "mutationStatus",
+                "validationStatus",
+                "tumorAltCount",
+                "tumorRefCount",
+                "normalAltCount",
+                "normalRefCount",
+                "aminoAcidChange",
+                "startPosition",
+                "endPosition",
+                "referenceAllele",
+                "variantAllele",
+                "proteinChange",
+                "mutationType",
+                "ncbiBuild",
+                "variantType",
+                "refseqMrnaId",
+                "proteinPosStart",
+                "proteinPosEnd",
+                "keyword"
+            ]
+        },
+        "direction": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "ASC",
+                "DESC"
+            ],
+            "default": "ASC"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "entrezGeneIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer",
+                        "format": "int32",
+                        "minimum": 1,
+                        "maximum": 10000000
+                    }
+                },
+                "molecularProfileIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "sampleMolecularIdentifiers": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "molecularProfileId": {
+                                "type": "string"
+                            },
+                            "sampleId": {
+                                "type": "string"
+                            }
+                        },
+                        "title": "SampleMolecularIdentifier"
+                    }
+                }
+            },
+            "title": "MutationMultipleStudyFilter"
+        }
+    }
+}

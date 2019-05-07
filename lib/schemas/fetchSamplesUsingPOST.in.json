@@ -1,0 +1,49 @@
+{
+    "type": "object",
+    "properties": {
+        "projection": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "ID",
+                "SUMMARY",
+                "DETAILED",
+                "META"
+            ],
+            "default": "SUMMARY"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "sampleIdentifiers": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "sampleId": {
+                                "type": "string"
+                            },
+                            "studyId": {
+                                "type": "string"
+                            }
+                        },
+                        "title": "SampleIdentifier"
+                    }
+                },
+                "sampleListIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "uniqueSampleKeys": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "title": "SampleFilter"
+        }
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "type": "object",
+    "properties": {
+        "molecularProfileId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "alteration": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "entrezGeneId": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "title": "CopyNumberCountIdentifier"
+            }
+        }
+    }
+}

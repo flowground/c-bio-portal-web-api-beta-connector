@@ -1,0 +1,29 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "sampleIdentifiers": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "sampleId": {
+                                "type": "string"
+                            },
+                            "studyId": {
+                                "type": "string"
+                            }
+                        },
+                        "title": "SampleIdentifier"
+                    }
+                },
+                "sampleListId": {
+                    "type": "string"
+                }
+            },
+            "title": "ClinicalAttributeCountFilter"
+        }
+    }
+}

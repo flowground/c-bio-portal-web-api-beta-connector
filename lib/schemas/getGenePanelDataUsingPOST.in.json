@@ -1,0 +1,24 @@
+{
+    "type": "object",
+    "properties": {
+        "molecularProfileId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "sampleIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "sampleListId": {
+                    "type": "string"
+                }
+            },
+            "title": "GenePanelDataFilter"
+        }
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "molecularProfileId": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

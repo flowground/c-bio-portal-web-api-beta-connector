@@ -1,0 +1,15 @@
+{
+    "name": "c-bio-portal-web-api-beta-connector",
+    "version": "1.0.0",
+    "description": "A web service for supplying JSON formatted data to cBioPortal clients. Please note that this API is currently in beta and subject to change.",
+    "main": "component.json",
+    "dependencies": {
+        "elasticio-node": "0.0.9",
+        "elasticio-sailor-nodejs": "^2.2.1",
+        "swagger-client": "^3.8.22"
+    },
+    "author": {
+        "name": "Deutsche Telekom AG"
+    },
+    "license": "Apache-2.0"
+}

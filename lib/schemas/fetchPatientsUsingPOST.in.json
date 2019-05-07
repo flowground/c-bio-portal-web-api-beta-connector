@@ -1,0 +1,43 @@
+{
+    "type": "object",
+    "properties": {
+        "projection": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "ID",
+                "SUMMARY",
+                "DETAILED",
+                "META"
+            ],
+            "default": "SUMMARY"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "patientIdentifiers": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "patientId": {
+                                "type": "string"
+                            },
+                            "studyId": {
+                                "type": "string"
+                            }
+                        },
+                        "title": "PatientIdentifier"
+                    }
+                },
+                "uniquePatientKeys": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "title": "PatientFilter"
+        }
+    }
+}

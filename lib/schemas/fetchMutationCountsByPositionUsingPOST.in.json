@@ -1,0 +1,26 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "entrezGeneId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "proteinPosEnd": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "proteinPosStart": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "title": "MutationPositionIdentifier"
+            }
+        }
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "type": "object",
+    "properties": {
+        "projection": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "ID",
+                "SUMMARY",
+                "DETAILED",
+                "META"
+            ],
+            "default": "SUMMARY"
+        },
+        "requestBody": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        }
+    }
+}

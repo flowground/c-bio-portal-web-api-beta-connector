@@ -1,0 +1,35 @@
+{
+    "type": "object",
+    "properties": {
+        "chromosome": {
+            "required": false,
+            "type": "string"
+        },
+        "projection": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "ID",
+                "SUMMARY",
+                "DETAILED",
+                "META"
+            ],
+            "default": "SUMMARY"
+        },
+        "requestBody": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "sampleId": {
+                        "type": "string"
+                    },
+                    "studyId": {
+                        "type": "string"
+                    }
+                },
+                "title": "SampleIdentifier"
+            }
+        }
+    }
+}

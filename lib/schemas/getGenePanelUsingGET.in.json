@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "genePanelId": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

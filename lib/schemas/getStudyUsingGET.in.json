@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "studyId": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

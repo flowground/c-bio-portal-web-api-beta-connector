@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "cancerTypeId": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "sampleListId": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

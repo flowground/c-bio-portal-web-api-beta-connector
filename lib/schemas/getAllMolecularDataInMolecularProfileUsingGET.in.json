@@ -1,0 +1,29 @@
+{
+    "type": "object",
+    "properties": {
+        "molecularProfileId": {
+            "required": true,
+            "type": "string"
+        },
+        "sampleListId": {
+            "required": true,
+            "type": "string"
+        },
+        "entrezGeneId": {
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+        },
+        "projection": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "ID",
+                "SUMMARY",
+                "DETAILED",
+                "META"
+            ],
+            "default": "SUMMARY"
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "type": "object",
+    "properties": {
+        "studyId": {
+            "required": true,
+            "type": "string"
+        },
+        "sampleId": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

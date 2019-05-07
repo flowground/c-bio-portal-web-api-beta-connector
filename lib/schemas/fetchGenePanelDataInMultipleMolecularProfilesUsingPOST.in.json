@@ -1,0 +1,29 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "required": [
+                "sampleMolecularIdentifiers"
+            ],
+            "properties": {
+                "sampleMolecularIdentifiers": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "molecularProfileId": {
+                                "type": "string"
+                            },
+                            "sampleId": {
+                                "type": "string"
+                            }
+                        },
+                        "title": "SampleMolecularIdentifier"
+                    }
+                }
+            },
+            "title": "GenePanelMultipleStudyFilter"
+        }
+    }
+}

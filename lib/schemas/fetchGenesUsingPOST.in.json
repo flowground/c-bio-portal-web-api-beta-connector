@@ -1,0 +1,31 @@
+{
+    "type": "object",
+    "properties": {
+        "geneIdType": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "ENTREZ_GENE_ID",
+                "HUGO_GENE_SYMBOL"
+            ],
+            "default": "ENTREZ_GENE_ID"
+        },
+        "projection": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "ID",
+                "SUMMARY",
+                "DETAILED",
+                "META"
+            ],
+            "default": "SUMMARY"
+        },
+        "requestBody": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        }
+    }
+}

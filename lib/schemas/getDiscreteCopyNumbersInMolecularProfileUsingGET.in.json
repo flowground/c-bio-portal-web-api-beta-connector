@@ -1,0 +1,38 @@
+{
+    "type": "object",
+    "properties": {
+        "molecularProfileId": {
+            "required": true,
+            "type": "string"
+        },
+        "sampleListId": {
+            "required": true,
+            "type": "string"
+        },
+        "discreteCopyNumberEventType": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "HOMDEL_AND_AMP",
+                "HOMDEL",
+                "AMP",
+                "GAIN",
+                "HETLOSS",
+                "DIPLOID",
+                "ALL"
+            ],
+            "default": "HOMDEL_AND_AMP"
+        },
+        "projection": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "ID",
+                "SUMMARY",
+                "DETAILED",
+                "META"
+            ],
+            "default": "SUMMARY"
+        }
+    }
+}

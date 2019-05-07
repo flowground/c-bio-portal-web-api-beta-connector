@@ -1,0 +1,47 @@
+{
+    "type": "object",
+    "properties": {
+        "studyId": {
+            "required": true,
+            "type": "string"
+        },
+        "clinicalDataType": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "SAMPLE",
+                "PATIENT"
+            ],
+            "default": "SAMPLE"
+        },
+        "projection": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "ID",
+                "SUMMARY",
+                "DETAILED",
+                "META"
+            ],
+            "default": "SUMMARY"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "attributeIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "title": "ClinicalDataSingleStudyFilter"
+        }
+    }
+}
